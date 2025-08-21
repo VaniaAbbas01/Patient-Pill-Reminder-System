@@ -14,6 +14,7 @@ Aactuators used: BUZZER
 #include <Adafruit_MLX90614.h>
 #include <DFRobotDFPlayerMini.h>
 #include <SoftwareSerial.h>
+#include "secrets.h"
 
 
 // Provide the token generation process info.
@@ -23,17 +24,17 @@ Aactuators used: BUZZER
 Adafruit_MLX90614 mlx = Adafruit_MLX90614();
 
 // Wi-Fi Credentials
-const char* ssid = "StormFiber";
-const char* password = "wland5d31f";
+#define WIFI_SSID       "your-wifi-ssid"
+#define WIFI_PASSWORD   "your-wifi-password"
 
 // Firebase Credentials
-#define API_KEY "AIzaSyDiwSosj-Kb5r6h8GeN4Chl0HdzO6wN4oA"
-#define DATABASE_URL "https://reminder-application-4c715-default-rtdb.firebaseio.com/"
-#define FIREBASE_PROJECT_ID "reminder-application-4c715"
+#define API_KEY         "your-firebase-api-key"
+#define DATABASE_URL    "your-firebase-db-url"
+#define FIREBASE_PROJECT_ID "your-firebase-project-id"
 
 // User Credentials
-#define USER_EMAIL "vania2@gmail.com"
-#define USER_PASSWORD "Vania123"
+#define USER_EMAIL      "your-email"
+#define USER_PASSWORD   "your-password"
 
 // Firebase objects
 FirebaseData firebaseData;
@@ -65,7 +66,7 @@ NTPClient timeClient(ntpUDP, "pool.ntp.org", 0, 60000);  // UTC time
 
 // WiFi initialization function
 void initWiFi() {
-  WiFi.begin(ssid, password);
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   Serial.print("Connecting to WiFi...");
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
